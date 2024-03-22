@@ -65,36 +65,8 @@ public class Ex2P1_JonatanVallecillo {
                     System.out.println("El montacarga va a la izquierda");
                     break;
                 case 5:
-                    char [][] maps = montacarga.getMapa();
-                    int posx = 0;
-                    int posy = 0;
-                    
-                    for(int i = 0; i < maps.length; i++){
-                        for(int j = 0; j < maps[i].length; j++){
-                            if(maps[i][j] == 'M'){
-                                posx = j;
-                                posy = i;
-                            }
-                        }
-                    }
-                    
-                    if(maps[posy + 1][posx] == 'C'){
-                        maps[posy + 1][posx] = '.';
-                        montacarga.setMontacarga(true);
-                    }else if(maps[posy - 1][posx] == 'C'){
-                        maps[posy - 1][posx] = '.';
-                        montacarga.setMontacarga(true);
-                    }else if(maps[posy][posx + 1] == 'C'){
-                        maps[posy][posx + 1] = '.';
-                        montacarga.setMontacarga(true);
-                    }else if(maps[posy][posx - 1] == 'C'){
-                        maps[posy][posx - 1] = '.';
-                        montacarga.setMontacarga(true);
-                    }
-                    montacarga.setMapa(maps);
-                    
                     instru.add("Cargar");
-                    System.out.println("El montacarga descargara la carga");
+                    System.out.println("El montacarga va a cargar");
                     break;
                 case 6:
                     if(instru.size() > 0){
@@ -106,19 +78,18 @@ public class Ex2P1_JonatanVallecillo {
                     }else{
                         System.out.println("\nNo tiene instrucciones");
                     }
-                    for(int i = instru.size() - 1; i >= 0; i --){
-                        instru.remove(i);
+                    imprimir_mapa();
+                    if(montacarga.getEntregar() == true){
+                        System.out.println("Ha logrado descargar la carga correctamente!!");
+                        continuar = 0;
+                    }else{
+                        System.out.println("Ha fracasado.");
+                        continuar = 0;
                     }
                     
                     break;
             }
             System.out.println();
-            
-            if(montacarga.getMontacarga() == true && montacarga.getEntregar() == true){
-                imprimir_mapa();
-                System.out.println("Ha logrado descargar la carga correctamente!!");
-                continuar = 0;
-            }
         }
     }
     
@@ -336,6 +307,35 @@ public class Ex2P1_JonatanVallecillo {
                     System.out.println("\nSe ha salido del mapa");
                     a = instru.size();
                 }
+            }else if(instru.get(a).equals("Cargar")){
+                char [][] maps = montacarga.getMapa();
+                    posx = 0;
+                    posy = 0;
+                    
+                    for(int i = 0; i < maps.length; i++){
+                        for(int j = 0; j < maps[i].length; j++){
+                            if(maps[i][j] == 'M'){
+                                posx = j;
+                                posy = i;
+                            }
+                        }
+                    }
+                    
+                    if(maps[posy + 1][posx] == 'C'){
+                        maps[posy + 1][posx] = '.';
+                        montacarga.setMontacarga(true);
+                    }else if(maps[posy - 1][posx] == 'C'){
+                        maps[posy - 1][posx] = '.';
+                        montacarga.setMontacarga(true);
+                    }else if(maps[posy][posx + 1] == 'C'){
+                        maps[posy][posx + 1] = '.';
+                        montacarga.setMontacarga(true);
+                    }else if(maps[posy][posx - 1] == 'C'){
+                        maps[posy][posx - 1] = '.';
+                        montacarga.setMontacarga(true);
+                    }
+                    montacarga.setMapa(maps);
+                    moverse(a+1); //Recursiva
             }
         }
     }

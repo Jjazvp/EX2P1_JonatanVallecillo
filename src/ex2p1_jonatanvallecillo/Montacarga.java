@@ -42,7 +42,7 @@ public class Montacarga {
         this.columna = columna;
     }
 
-    public boolean isMontacarga() {
+    public boolean getMontacarga() {
         return montacarga;
     }
 
@@ -50,7 +50,7 @@ public class Montacarga {
         this.montacarga = montacarga;
     }
 
-    public boolean isEntregar() {
+    public boolean getEntregar() {
         return entregar;
     }
 

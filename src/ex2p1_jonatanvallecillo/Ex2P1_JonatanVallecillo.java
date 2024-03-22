@@ -123,9 +123,11 @@ public class Ex2P1_JonatanVallecillo {
                 if(posx >= 0 && posx < montacarga.getColumna()){
                     if(map[posy][posx] == '#'){
                         System.out.println("Se ha topado con una pared");
+                        System.exit(0);
                         a = instru.size();
                     }else if(map[posy][posx] == 'C'){
-                        System.out.println("No puede sobreponerse a la carga. Utilice opcion 5.");
+                        System.out.println("No puede sobreponerse a la carga.");
+                        System.exit(0);
                     }else if(map[posy][posx] == '.'){
                         map[posy][posx] = 'M';
                         map[posy][posx+1] = '.';
@@ -170,8 +172,10 @@ public class Ex2P1_JonatanVallecillo {
                     if(map[posy][posx] == '#'){
                         System.out.println("Se ha topado con una pared");
                         a = instru.size();
+                        System.exit(0);
                     }else if(map[posy][posx] == 'C'){
-                        System.out.println("No puede sobreponerse a la carga. Utilice opcion 5.");
+                        System.out.println("No puede sobreponerse a la carga.");
+                        System.exit(0);
                     }else if(map[posy][posx] == '.'){
                         map[posy][posx] = 'M';
                         map[posy][posx-1] = '.';
@@ -218,8 +222,10 @@ public class Ex2P1_JonatanVallecillo {
                     if(map[posy][posx] == '#'){
                         System.out.println("Se ha topado con una pared");
                         a = instru.size();
+                        System.exit(0);
                     }else if(map[posy][posx] == 'C'){
-                        System.out.println("No puede sobreponerse a la carga. Utilice opcion 5.");
+                        System.out.println("No puede sobreponerse a la carga.");
+                        System.exit(0);
                     }else if(map[posy][posx] == '.'){
                         map[posy][posx] = 'M';
                         map[posy+1][posx] = '.';
@@ -266,8 +272,10 @@ public class Ex2P1_JonatanVallecillo {
                     if(map[posy][posx] == '#'){
                         System.out.println("Se ha topado con una pared");
                         a = instru.size();
+                        System.exit(0);
                     }else if(map[posy][posx] == 'C'){
-                        System.out.println("No puede sobreponerse a la carga. Utilice opcion 5.");
+                        System.out.println("No puede sobreponerse a la carga.");
+                        System.exit(0);
                     }else if(map[posy][posx] == '.'){
                         map[posy][posx] = 'M';
                         map[posy - 1][posx] = '.';
